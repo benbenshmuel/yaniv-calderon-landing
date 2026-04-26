@@ -1,0 +1,1740 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light only">
+<meta name="supported-color-schemes" content="light">
+<title>השקעות ערך | יניב קלדרון - שיטת וורן באפט בעברית</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300;400;500;700;900&family=Heebo:wght@300;400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  color-scheme: light only;
+  --ink: #0F0F0E;
+  --paper: #F4F0E8;
+  --paper-dark: #E8E1D3;
+  --gold: #B8924A;
+  --gold-deep: #8B6F35;
+  --burgundy: #4A1818;
+  --gray-soft: #6B6760;
+  --line: #1a1a18;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Heebo', sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.serif {
+  font-family: 'Frank Ruhl Libre', serif;
+}
+
+.display {
+  font-family: 'Playfair Display', serif;
+}
+
+/* ============== NAVIGATION ============== */
+.nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  padding: 18px 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(244, 240, 232, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(15, 15, 14, 0.08);
+}
+
+.nav-logo {
+  font-family: 'Frank Ruhl Libre', serif;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.nav-logo span {
+  color: var(--gold);
+  font-style: italic;
+}
+
+.nav-cta {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 10px 22px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.nav-cta:hover {
+  background: var(--gold);
+  transform: translateY(-1px);
+}
+
+/* ============== HERO ============== */
+.hero {
+  min-height: 100vh;
+  padding: 120px 5% 80px;
+  position: relative;
+  overflow: hidden;
+  background: var(--paper);
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 20% 30%, rgba(184, 146, 74, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(74, 24, 24, 0.05) 0%, transparent 40%);
+  pointer-events: none;
+}
+
+.hero-grid {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 80px;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-content {
+  position: relative;
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 18px;
+  background: var(--ink);
+  color: var(--paper);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  margin-bottom: 32px;
+  text-transform: uppercase;
+}
+
+.hero-eyebrow::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background: var(--gold);
+  border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.3); }
+}
+
+.hero h1 {
+  font-family: 'Frank Ruhl Libre', serif;
+  font-size: clamp(42px, 6vw, 76px);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -1px;
+  margin-bottom: 24px;
+  color: var(--ink);
+}
+
+.hero h1 .accent {
+  font-style: italic;
+  color: var(--gold-deep);
+  font-weight: 400;
+  position: relative;
+  display: inline-block;
+}
+
+.hero h1 .accent::after {
+  content: '';
+  position: absolute;
+  bottom: 8px;
+  right: 0;
+  left: 0;
+  height: 8px;
+  background: rgba(184, 146, 74, 0.25);
+  z-index: -1;
+}
+
+.hero-sub {
+  font-size: 19px;
+  line-height: 1.7;
+  color: var(--gray-soft);
+  margin-bottom: 36px;
+  max-width: 540px;
+  font-weight: 300;
+}
+
+.hero-bullets {
+  list-style: none;
+  margin-bottom: 40px;
+}
+
+.hero-bullets li {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 14px;
+  font-size: 17px;
+  font-weight: 400;
+}
+
+.hero-bullets li::before {
+  content: '✓';
+  width: 26px;
+  height: 26px;
+  background: var(--ink);
+  color: var(--gold);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.social-proof-mini {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 0;
+  border-top: 1px solid rgba(15, 15, 14, 0.12);
+  border-bottom: 1px solid rgba(15, 15, 14, 0.12);
+  margin-bottom: 40px;
+}
+
+.avatars {
+  display: flex;
+}
+
+.avatar-placeholder {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold), var(--burgundy));
+  border: 2px solid var(--paper);
+  margin-left: -10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--paper);
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.avatar-placeholder:first-child { margin-left: 0; }
+
+.proof-text {
+  font-size: 14px;
+  color: var(--ink);
+}
+
+.proof-text strong {
+  font-weight: 700;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.proof-text span {
+  color: var(--gray-soft);
+  font-size: 13px;
+}
+
+/* ============== HERO FORM ============== */
+.hero-form-wrap {
+  position: relative;
+}
+
+.form-card {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 48px 44px;
+  border-radius: 4px;
+  position: relative;
+  box-shadow: 30px 30px 0 var(--gold-deep);
+}
+
+.form-card::before {
+  content: '';
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  right: 16px;
+  bottom: 16px;
+  border: 1px solid rgba(184, 146, 74, 0.3);
+  pointer-events: none;
+  border-radius: 2px;
+}
+
+.form-tag {
+  font-family: 'Frank Ruhl Libre', serif;
+  font-style: italic;
+  color: var(--gold);
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.form-card h2 {
+  font-family: 'Frank Ruhl Libre', serif;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 8px;
+  color: var(--paper);
+}
+
+.form-price {
+  display: inline-block;
+  font-size: 14px;
+  letter-spacing: 1px;
+  margin-bottom: 28px;
+  padding: 4px 12px;
+  background: var(--gold);
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 14px 16px;
+  background: transparent;
+  border: 1px solid rgba(244, 240, 232, 0.25);
+  color: var(--paper);
+  font-family: 'Heebo', sans-serif;
+  font-size: 15px;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.form-group input::placeholder {
+  color: rgba(244, 240, 232, 0.5);
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: var(--gold);
+  background: rgba(184, 146, 74, 0.05);
+}
+
+.form-checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 18px 0 24px;
+  font-size: 12px;
+  color: rgba(244, 240, 232, 0.7);
+  line-height: 1.5;
+}
+
+.form-checkbox input {
+  margin-top: 3px;
+  accent-color: var(--gold);
+}
+
+.form-submit {
+  width: 100%;
+  padding: 18px;
+  background: var(--gold);
+  color: var(--ink);
+  border: none;
+  font-family: 'Heebo', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 2px;
+  position: relative;
+  overflow: hidden;
+}
+
+.form-submit::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--paper);
+  transition: right 0.4s ease;
+  z-index: 0;
+}
+
+.form-submit span {
+  position: relative;
+  z-index: 1;
+}
+
+.form-submit:hover::before {
+  right: 0;
+}
+
+.form-submit:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.form-submit:disabled::before {
+  right: -100%;
+}
+
+.form-status {
+  margin-top: 16px;
+  padding: 14px 16px;
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: center;
+  border-radius: 2px;
+  display: none;
+  font-weight: 500;
+}
+
+.form-status.success {
+  display: block;
+  background: rgba(184, 146, 74, 0.12);
+  border: 1px solid var(--gold);
+  color: var(--gold);
+}
+
+.form-status.error {
+  display: block;
+  background: rgba(220, 80, 80, 0.1);
+  border: 1px solid rgba(220, 80, 80, 0.5);
+  color: #e88a8a;
+}
+
+.form-footnote {
+  text-align: center;
+  font-size: 12px;
+  color: rgba(244, 240, 232, 0.5);
+  margin-top: 16px;
+}
+
+/* ============== TICKER ============== */
+.ticker {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 18px 0;
+  overflow: hidden;
+  position: relative;
+  border-top: 1px solid rgba(184, 146, 74, 0.2);
+  border-bottom: 1px solid rgba(184, 146, 74, 0.2);
+}
+
+.ticker-track {
+  display: flex;
+  gap: 60px;
+  animation: scroll 40s linear infinite;
+  white-space: nowrap;
+}
+
+.ticker-item {
+  font-family: 'Frank Ruhl Libre', serif;
+  font-size: 18px;
+  font-style: italic;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.ticker-item::before {
+  content: '◆';
+  color: var(--gold);
+  font-style: normal;
+}
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(50%); }
+}
+
+/* ============== SECTION BASE ============== */
+section {
+  padding: 100px 5%;
+  position: relative;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-header {
+  margin-bottom: 70px;
+  max-width: 800px;
+}
+
+.section-eyebrow {
+  font-size: 12px;
+  letter-spacing: 4px;
+  color: var(--gold-deep);
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.section-eyebrow::before {
+  content: '';
+  width: 40px;
+  height: 1px;
+  background: var(--gold-deep);
+}
+
+.section-title {
+  font-family: 'Frank Ruhl Libre', serif;
+  font-size: clamp(34px, 4.5vw, 56px);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.5px;
+  margin-bottom: 20px;
+}
+
+.section-title em {
+  color: var(--gold-deep);
+  font-style: italic;
+  font-weight: 400;
+}
+
+.section-intro {
+  font-size: 18px;
+  color: var(--gray-soft);
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+/* ============== PROBLEM SECTION ============== */
+.problem {
+  background: var(--ink);
+  color: var(--paper);
+  position: relative;
+  overflow: hidden;
+}
+
+.problem::before {
+  content: 'נחישות';
+  position: absolute;
+  top: 50%;
+  right: -5%;
+  transform: translateY(-50%) rotate(-90deg);
+  font-family: 'Playfair Display', serif;
+  font-size: 200px;
+  font-weight: 900;
+  color: rgba(184, 146, 74, 0.04);
+  pointer-events: none;
+  letter-spacing: -5px;
+}
+
+.problem .section-title {
+  color: var(--paper);
+}
+
+.problem .section-intro {
+  color: rgba(244, 240, 232, 0.7);
+}
+
+.problem-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-top: 60px;
+}
+
+.problem-card {
+  padding: 36px 30px;
+  border: 1px solid rgba(184, 146, 74, 0.2);
+  position: relative;
+  transition: all 0.4s ease;
+}
+
+.problem-card:hover {
+  border-color: var(--gold);
+  transform: translateY(-4px);
+}
+
+.problem-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 56px;
+  font-weight: 900;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 20px;
+  font-style: italic;
+}
+
+.problem-card h3 {
+  font-family: 'Frank Ruhl Libre', serif;
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+.problem-card p {
+  color: rgba(244, 240, 232, 0.65);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* ============== METHOD SECTION ============== */
+.method {
+  background: var(--paper);
+  position: relative;
+}
+
+.method-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.method-image-placeholder {
+  aspect-ratio: 4/5;
+  background: linear-gradient(135deg, var(--paper-dark) 0%, var(--gold) 100%);
+  position: relative;
+  overflow: hidden;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink);
+  font-family: 'Frank Ruhl Libre', serif;
+  font-style: italic;
+  font-size: 18px;
+  text-align: center;
+  padding: 40px;
+  box-shadow: -20px 20px 0 var(--ink);
+}
+
+.method-image-placeholder::before {
+  content: '';
+  position: absolute;
+  inset: 16px;
+  border: 1px solid rgba(15, 15, 14, 0.2);
+}
+
+.method-image-placeholder span {
+  position: relative;
+  z-index: 2;
+  background: var(--paper);
+  padding: 8px 16px;
+  border-radius: 2px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--gray-soft);
+}
+
+.principles {
+  list-style: none;
+}
+
+.principle {
+  padding: 24px 0;
+  border-bottom: 1px solid rgba(15, 15, 14, 0.12);
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.principle:first-child {
+  padding-top: 0;
+}
+
+.principle:last-child {
+  border-bottom: none;
+}
+
+.principle-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 40px;
+  font-weight: 900;
+  color: var(--gold-deep);
+  line-height: 1;
+  font-style: italic;
+}
+
+.principle h4 {
+  font-family: 'Frank Ruhl Libre', serif;
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.principle p {
+  color: var(--gray-soft);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* ============== ABOUT SECTION ============== */
+.about {
+  background: var(--paper-dark);
+  position: relative;
+  overflow: hidden;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.about-photo-wrap {
+  position: relative;
+}
+
+.about-photo {
+  aspect-ratio: 3/4;
+  background: linear-gradient(135deg, var(--ink) 0%, var(--burgundy) 100%);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold);
+  font-family: 'Frank Ruhl Libre', serif;
+  font-style: italic;
+  font-size: 16px;
+  text-align: center;
+}
+
+.about-photo span {
+  background: rgba(15, 15, 14, 0.85);
+  padding: 10px 20px;
+  border: 1px solid var(--gold);
+  letter-spacing: 1px;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.about-stamp {
+  position: absolute;
+  bottom: -30px;
+  right: -30px;
+  width: 140px;
+  height: 140px;
+  background: var(--gold);
+  color: var(--ink);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Frank Ruhl Libre', serif;
+  text-align: center;
+  border: 8px solid var(--paper-dark);
+  transform: rotate(-12deg);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.about-stamp .num {
+  font-size: 36px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.about-stamp .label {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+.about-content blockquote {
+  font-family: 'Frank Ruhl Libre', serif;
+  font-style: italic;
+  font-size: 22px;
+  line-height: 1.5;
+  color: var(--burgundy);
+  margin: 28px 0;
+  padding-right: 24px;
+  border-right: 3px solid var(--gold);
+}
+
+.about-content p {
+  font-size: 17px;
+  line-height: 1.8;
+  color: var(--ink);
+  margin-bottom: 20px;
+  font-weight: 300;
+}
+
+.about-content p strong {
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.about-signature {
+  margin-top: 36px;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 28px;
+  color: var(--ink);
+  border-top: 1px solid rgba(15, 15, 14, 0.2);
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.about-signature small {
+  font-family: 'Heebo', sans-serif;
+  font-size: 13px;
+  font-style: normal;
+  color: var(--gray-soft);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* ============== CURRICULUM ============== */
+.curriculum {
+  background: var(--paper);
+}
+
+.curriculum-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border: 1px solid var(--ink);
+}
+
+.lesson {
+  padding: 50px 36px;
+  border-left: 1px solid var(--ink);
+  background: var(--paper);
+  transition: all 0.5s ease;
+  position: relative;
+  cursor: default;
+}
+
+.lesson:last-child {
+  border-left: none;
+}
+
+.lesson:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.lesson:hover .lesson-num,
+.lesson:hover .lesson-title,
+.lesson:hover .lesson-meta {
+  color: var(--gold);
+}
+
+.lesson:hover .lesson-desc {
+  color: rgba(244, 240, 232, 0.75);
+}
+
+.lesson-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 14px;
+  letter-spacing: 4px;
+  color: var(--gold-deep);
+  font-weight: 700;
+  margin-bottom: 24px;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+
+.lesson-title {
+  font-family: 'Frank Ruhl Libre', serif;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.25;
+  margin-bottom: 18px;
+  transition: color 0.3s ease;
+}
+
+.lesson-desc {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--gray-soft);
+  margin-bottom: 24px;
+  transition: color 0.3s ease;
+}
+
+.lesson-meta {
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: var(--ink);
+  font-weight: 700;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: color 0.3s ease;
+}
+
+.lesson-meta::before {
+  content: '';
+  width: 24px;
+  height: 1px;
+  background: currentColor;
+}
+
+/* ============== TESTIMONIALS ============== */
+.testimonials {
+  background: var(--ink);
+  color: var(--paper);
+  position: relative;
+  overflow: hidden;
+}
+
+.testimonials::before {
+  content: '"';
+  position: absolute;
+  top: 40px;
+  right: 5%;
+  font-family: 'Playfair Display', serif;
+  font-size: 400px;
+  color: rgba(184, 146, 74, 0.07);
+  line-height: 0.8;
+  pointer-events: none;
+}
+
+.testimonials .section-title {
+  color: var(--paper);
+}
+
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-top: 60px;
+}
+
+.testimonial {
+  padding: 36px 32px;
+  background: rgba(244, 240, 232, 0.04);
+  border: 1px solid rgba(184, 146, 74, 0.2);
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.testimonial:hover {
+  background: rgba(244, 240, 232, 0.07);
+  transform: translateY(-4px);
+}
+
+.stars {
+  display: flex;
+  gap: 2px;
+  margin-bottom: 20px;
+  color: var(--gold);
+  font-size: 16px;
+}
+
+.testimonial-text {
+  font-family: 'Frank Ruhl Libre', serif;
+  font-size: 17px;
+  line-height: 1.7;
+  margin-bottom: 28px;
+  color: rgba(244, 240, 232, 0.92);
+  font-style: italic;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(184, 146, 74, 0.2);
+}
+
+.author-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold), var(--gold-deep));
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 18px;
+  font-family: 'Frank Ruhl Libre', serif;
+  flex-shrink: 0;
+}
+
+.author-info strong {
+  display: block;
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.author-info small {
+  color: rgba(244, 240, 232, 0.55);
+  font-size: 13px;
+}
+
+/* ============== FAQ ============== */
+.faq {
+  background: var(--paper);
+}
+
+.faq-list {
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  border-bottom: 1px solid rgba(15, 15, 14, 0.15);
+  padding: 28px 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.faq-item:first-child {
+  border-top: 1px solid rgba(15, 15, 14, 0.15);
+}
+
+.faq-q {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  font-family: 'Frank Ruhl Libre', serif;
+  font-size: 21px;
+  font-weight: 500;
+}
+
+.faq-toggle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--ink);
+  color: var(--paper);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.faq-item.active .faq-toggle {
+  background: var(--gold);
+  transform: rotate(45deg);
+}
+
+.faq-a {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.4s ease;
+  color: var(--gray-soft);
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.faq-item.active .faq-a {
+  max-height: 300px;
+  padding-top: 18px;
+}
+
+/* ============== FINAL CTA ============== */
+.final-cta {
+  background: var(--ink);
+  color: var(--paper);
+  position: relative;
+  overflow: hidden;
+}
+
+.final-cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(circle at 30% 50%, rgba(184, 146, 74, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 70% 50%, rgba(74, 24, 24, 0.2) 0%, transparent 50%);
+}
+
+.cta-content {
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.cta-quote {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 18px;
+  color: var(--gold);
+  margin-bottom: 24px;
+}
+
+.cta-content h2 {
+  font-family: 'Frank Ruhl Libre', serif;
+  font-size: clamp(38px, 5vw, 64px);
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 24px;
+}
+
+.cta-content p {
+  font-size: 18px;
+  color: rgba(244, 240, 232, 0.75);
+  margin-bottom: 40px;
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+.cta-button {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--ink);
+  padding: 22px 56px;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  position: relative;
+  border: 2px solid var(--gold);
+}
+
+.cta-button:hover {
+  background: transparent;
+  color: var(--gold);
+}
+
+.cta-meta {
+  margin-top: 24px;
+  font-size: 13px;
+  color: rgba(244, 240, 232, 0.5);
+  letter-spacing: 1px;
+}
+
+/* ============== FOOTER ============== */
+footer {
+  background: var(--ink);
+  color: rgba(244, 240, 232, 0.5);
+  padding: 40px 5%;
+  text-align: center;
+  font-size: 13px;
+  border-top: 1px solid rgba(184, 146, 74, 0.15);
+}
+
+footer strong {
+  color: var(--gold);
+  font-weight: 500;
+}
+
+/* ============== RESPONSIVE ============== */
+@media (max-width: 968px) {
+  .hero-grid,
+  .method-content,
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+  
+  .problem-grid,
+  .testimonial-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .curriculum-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .lesson {
+    border-left: none;
+    border-bottom: 1px solid var(--ink);
+  }
+  
+  .lesson:last-child {
+    border-bottom: none;
+  }
+  
+  .form-card {
+    box-shadow: 15px 15px 0 var(--gold-deep);
+  }
+  
+  .about-stamp {
+    width: 110px;
+    height: 110px;
+    bottom: -20px;
+    right: -20px;
+  }
+  
+  .about-stamp .num { font-size: 28px; }
+  
+  section {
+    padding: 70px 5%;
+  }
+  
+  .hero {
+    padding: 100px 5% 60px;
+  }
+}
+
+@media (max-width: 600px) {
+  .nav-cta { display: none; }
+  
+  .form-card {
+    padding: 32px 24px;
+  }
+  
+  .principle {
+    grid-template-columns: 50px 1fr;
+    gap: 16px;
+  }
+  
+  .principle-num { font-size: 32px; }
+}
+
+/* ============== ENTRY ANIMATIONS ============== */
+.fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style>
+</head>
+<body>
+
+<!-- ============== NAVIGATION ============== -->
+<nav class="nav">
+  <div class="nav-logo">יניב <span>קלדרון</span></div>
+  <a href="#form" class="nav-cta">קבל גישה חינם</a>
+</nav>
+
+<!-- ============== HERO ============== -->
+<section class="hero">
+  <div class="hero-grid">
+    
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        קורס דיגיטלי · 3 שיעורים בחינם
+      </div>
+      
+      <h1>
+        תפסיק לנחש בבורסה.<br>
+        תתחיל <span class="accent">להבין</span><br>
+        מה אתה עושה עם הכסף שלך.
+      </h1>
+      
+      <p class="hero-sub">
+        שלושה שיעורים קצרים שיתנו לך שיטה ברורה ומבוססת להשקעות ערך - לפי הגישה שהפכה את וורן באפט לאחד המשקיעים המצליחים בהיסטוריה.
+      </p>
+      
+      <ul class="hero-bullets">
+        <li>גם אם אין לך מושג בשוק ההון</li>
+        <li>גם אם הפסדת כסף בעבר ואתה חושש לחזור</li>
+        <li>גישה פשוטה - תדע בדיוק מה לקנות ולמה</li>
+      </ul>
+      
+      <div class="social-proof-mini">
+        <div class="avatars">
+          <div class="avatar-placeholder">ג</div>
+          <div class="avatar-placeholder">ק</div>
+          <div class="avatar-placeholder">צ</div>
+          <div class="avatar-placeholder">+</div>
+        </div>
+        <div class="proof-text">
+          <strong>למעלה מ-1,000 תלמידים</strong>
+          <span>כבר התחילו את המסע שלהם</span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- ============== HERO FORM ============== -->
+    <div class="hero-form-wrap" id="form">
+      <div class="form-card">
+        <div class="form-tag">— מתחילים כאן</div>
+        <h2>קבל את השיעור הראשון</h2>
+        <div class="form-price">חינם לחלוטין</div>
+        
+        <form id="leadForm">
+          <div class="form-group">
+            <input type="text" name="fullName" placeholder="שם פרטי ומשפחה" required>
+          </div>
+          <div class="form-group">
+            <input type="email" name="email" placeholder="כתובת אימייל" required>
+          </div>
+          <div class="form-group">
+            <input type="tel" name="phone" placeholder="מספר טלפון" required>
+          </div>
+          
+          <label class="form-checkbox">
+            <input type="checkbox" name="consent" required>
+            <span>אני מאשר/ת קבלת תכנים שיווקיים מיניב קלדרון. ניתן להסיר בכל עת.</span>
+          </label>
+          
+          <button type="submit" class="form-submit" id="submitBtn">
+            <span id="submitText">קבל גישה לשיעור הראשון ←</span>
+          </button>
+          
+          <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
+          
+          <div class="form-footnote">100% ללא עלות · ללא כרטיס אשראי</div>
+        </form>
+      </div>
+    </div>
+    
+  </div>
+</section>
+
+<!-- ============== TICKER ============== -->
+<div class="ticker">
+  <div class="ticker-track">
+    <div class="ticker-item">חשיבה עצמאית</div>
+    <div class="ticker-item">השקעות ערך</div>
+    <div class="ticker-item">שיטת באפט</div>
+    <div class="ticker-item">סבלנות</div>
+    <div class="ticker-item">תשואה לטווח ארוך</div>
+    <div class="ticker-item">ביטחון כלכלי</div>
+    <div class="ticker-item">חופש פיננסי</div>
+    <div class="ticker-item">חשיבה עצמאית</div>
+    <div class="ticker-item">השקעות ערך</div>
+    <div class="ticker-item">שיטת באפט</div>
+    <div class="ticker-item">סבלנות</div>
+    <div class="ticker-item">תשואה לטווח ארוך</div>
+    <div class="ticker-item">ביטחון כלכלי</div>
+    <div class="ticker-item">חופש פיננסי</div>
+  </div>
+</div>
+
+<!-- ============== PROBLEM SECTION ============== -->
+<section class="problem">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">למה רוב האנשים נכשלים בבורסה</div>
+      <h2 class="section-title">הבעיה היא לא <em>השוק</em>.<br>הבעיה היא הגישה.</h2>
+      <p class="section-intro">
+        רוב האנשים ניגשים להשקעות כמו להימור - קונים בלי להבין, מוכרים בפחד, וחוזרים על אותן טעויות שוב ושוב. הנה למה זה קורה:
+      </p>
+    </div>
+    
+    <div class="problem-grid">
+      <div class="problem-card">
+        <div class="problem-num">01</div>
+        <h3>פעילות מבוססת רגש</h3>
+        <p>החלטות מתקבלות לפי כותרות, פחד וחמדנות - לא לפי נתונים והבנה אמיתית של מה שאתה קונה.</p>
+      </div>
+      
+      <div class="problem-card">
+        <div class="problem-num">02</div>
+        <h3>חוסר שיטה ברורה</h3>
+        <p>כשאין לך מסגרת קבועה לקבלת החלטות, כל ירידה בשוק הופכת לסיוט וכל עלייה לפיתוי.</p>
+      </div>
+      
+      <div class="problem-card">
+        <div class="problem-num">03</div>
+        <h3>תלות במומחים</h3>
+        <p>הסתמכות על "טיפים" וייעוץ של אחרים במקום לפתח את הידע והשיקול הדעת העצמאי שלך.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== METHOD SECTION ============== -->
+<section class="method">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">השיטה</div>
+      <h2 class="section-title">לחשוב כמו <em>משקיע ערך</em>.<br>לפעול כמו וורן באפט.</h2>
+      <p class="section-intro">
+        השקעות ערך הן לא טריק או נוסחה - הן גישה לחיים. זו דרך מובנית להבין מה אתה קונה, למה, ובאיזה מחיר כדאי לקנות אותו.
+      </p>
+    </div>
+    
+    <div class="method-content">
+      <div class="method-image-placeholder">
+        <span>[ מקום לתמונה - יניב מלמד / גרף / ספר באפט ]</span>
+      </div>
+      
+      <ul class="principles">
+        <li class="principle">
+          <div class="principle-num">i</div>
+          <div>
+            <h4>בחירת מניות איכותיות</h4>
+            <p>נלמד לזהות חברות עם יסודות חזקים, יתרון תחרותי ברור והנהלה אמינה - כאלה שיהיו פה גם בעוד 20 שנה.</p>
+          </div>
+        </li>
+        
+        <li class="principle">
+          <div class="principle-num">ii</div>
+          <div>
+            <h4>הערכת שווי אמיתית</h4>
+            <p>איך לדעת אם מניה זולה או יקרה? תקבל כלים פרקטיים להעריך את השווי הפנימי של כל חברה לפני שאתה משקיע בה.</p>
+          </div>
+        </li>
+        
+        <li class="principle">
+          <div class="principle-num">iii</div>
+          <div>
+            <h4>בניית תיק השקעות מותאם</h4>
+            <p>תיק שמתאים למטרות שלך, לטווח שלך ולסיבולת הסיכון שלך - לא תבנית גנרית שמתאימה לכל אחד.</p>
+          </div>
+        </li>
+        
+        <li class="principle">
+          <div class="principle-num">iv</div>
+          <div>
+            <h4>פעולה בעקביות, גם כשהשוק רועש</h4>
+            <p>הגישה הפסיכולוגית הנכונה - איך לא לאבד את הראש בירידות ואיך לא להיסחף בעליות.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============== ABOUT SECTION ============== -->
+<section class="about">
+  <div class="container">
+    <div class="about-grid">
+      
+      <div class="about-photo-wrap">
+        <div class="about-photo">
+          <span>[ מקום לתמונה של יניב ]</span>
+        </div>
+        <div class="about-stamp">
+          <div class="num">15+</div>
+          <div class="label">שנות ניסיון</div>
+        </div>
+      </div>
+      
+      <div class="about-content">
+        <div class="section-eyebrow">מי יוביל אותך</div>
+        <h2 class="section-title">היכרות עם <em>יניב קלדרון</em></h2>
+        
+        <p>
+          משקיע בשוק ההון האמריקאי כבר למעלה מ-15 שנים, לפי שיטתו של וורן באפט. כעצמאי, חיפשתי שנים אפיק נוסף להכנסה שיאפשר לי ולמשפחתי ביטחון כלכלי, רווחה, וחופש לעשות את מה שאנחנו באמת אוהבים.
+        </p>
+        
+        <blockquote>
+          "כשניגשים להשקעות נכון - בתבונה, באחריות ועם ליווי מקצועי - אפשר לייצר תשואות מרשימות בהשקעה של רבע שעה ביום."
+        </blockquote>
+        
+        <p>
+          היום, אני מלווה אנשים שרוצים לבנות לעצמם <strong>מקור הכנסה נוסף יציב, שקול ומבוסס ערך</strong>. אני עוזר להם להבין איך שוק ההון באמת עובד, איך להשקיע בצורה סבלנית ומדויקת, ואיך לקחת שליטה כלכלית אמיתית על החיים שלהם.
+        </p>
+        
+        <div class="about-signature">
+          יניב קלדרון
+          <small>מייסד ומנחה</small>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+<!-- ============== CURRICULUM ============== -->
+<section class="curriculum">
+  <div class="container">
+    <div class="section-header" style="text-align: center; margin-right: auto; margin-left: auto;">
+      <div class="section-eyebrow" style="justify-content: center;">מה תקבל בסדרה</div>
+      <h2 class="section-title">3 שיעורים. <em>שיטה אחת.</em><br>שינוי של גישה.</h2>
+    </div>
+    
+    <div class="curriculum-grid">
+      <div class="lesson">
+        <div class="lesson-num">— שיעור 01</div>
+        <h3 class="lesson-title">החשיבה של משקיע ערך</h3>
+        <p class="lesson-desc">
+          מה ההבדל בין מהמר לבין משקיע? איך וורן באפט בוחר במניות שלו, ולמה זה רלוונטי גם למשקיע מתחיל בישראל בשנת 2025.
+        </p>
+        <div class="lesson-meta">15 דקות · בחינם</div>
+      </div>
+      
+      <div class="lesson">
+        <div class="lesson-num">— שיעור 02</div>
+        <h3 class="lesson-title">איך לזהות מניה איכותית</h3>
+        <p class="lesson-desc">
+          הקריטריונים הבסיסיים שכל משקיע ערך מחפש בחברה לפני שהוא קונה. דוגמאות פרקטיות מחברות אמיתיות בשוק האמריקאי.
+        </p>
+        <div class="lesson-meta">22 דקות · בחינם</div>
+      </div>
+      
+      <div class="lesson">
+        <div class="lesson-num">— שיעור 03</div>
+        <h3 class="lesson-title">מתי לקנות, מתי לחכות</h3>
+        <p class="lesson-desc">
+          הצעד שמבדיל בין רווח מקרי לתשואה עקבית - איך לתמחר חברה ולדעת אם המחיר הנוכחי מצדיק כניסה.
+        </p>
+        <div class="lesson-meta">18 דקות · בחינם</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== TESTIMONIALS ============== -->
+<section class="testimonials">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">מה אומרים התלמידים</div>
+      <h2 class="section-title">תוצאות אמיתיות.<br><em>אנשים אמיתיים.</em></h2>
+    </div>
+    
+    <div class="testimonial-grid">
+      
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">
+          "יניב מדגים בקיאות מרשימה ודרך ההוראה שלו נעימה ומסודרת. הקורס לא רק העשיר את הידע שלי, אלא נתן לי תקווה אמיתית שאוכל לייצר הכנסה חודשית יציבה."
+        </p>
+        <div class="testimonial-author">
+          <div class="author-avatar">ג</div>
+          <div class="author-info">
+            <strong>גיא כהנוביץ</strong>
+            <small>מפתח תוכנה, מיקרוסופט</small>
+          </div>
+        </div>
+      </div>
+      
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">
+          "סיימתי את הקורס בהבנה עמוקה של התחום. בהחלט קיבלתי את מה שציפיתי לו - ועוד יותר. יניב מורה מצוין. ממליצה בחום לכל אישה שרוצה לקחת אחריות על העתיד הכלכלי שלה."
+        </p>
+        <div class="testimonial-author">
+          <div class="author-avatar">ק</div>
+          <div class="author-info">
+            <strong>קרן רוזנר</strong>
+            <small>מעצבת פנים</small>
+          </div>
+        </div>
+      </div>
+      
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">
+          "הבנתי שעלי לקחת אחריות כלכלית בחיי. למדתי מיניב המון - הוא פתח לי תחום מחשבתי שלא היה קיים. הקורס היווה נקודת מפנה ואני מוקיר לו תודה על הניסיון, הידע והסבלנות."
+        </p>
+        <div class="testimonial-author">
+          <div class="author-avatar">צ</div>
+          <div class="author-info">
+            <strong>צבי קפלן</strong>
+            <small>מנהל פרויקטים, תחום האמנות</small>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+<!-- ============== FAQ ============== -->
+<section class="faq">
+  <div class="container">
+    <div class="section-header" style="text-align: center; margin-right: auto; margin-left: auto;">
+      <div class="section-eyebrow" style="justify-content: center;">שאלות נפוצות</div>
+      <h2 class="section-title">כל מה שצריך <em>לדעת</em></h2>
+    </div>
+    
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">
+          האם הקורס באמת בחינם?
+          <div class="faq-toggle">+</div>
+        </div>
+        <div class="faq-a">
+          כן. שלושת השיעורים הראשונים ניתנים בחינם לחלוטין, ללא צורך בכרטיס אשראי וללא התחייבות. מטרת הסדרה היא לתת לך תמונה אמיתית של השיטה לפני שאתה מחליט אם להמשיך.
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-q">
+          אני בלי שום ניסיון בבורסה. זה מתאים לי?
+          <div class="faq-toggle">+</div>
+        </div>
+        <div class="faq-a">
+          בהחלט. הסדרה בנויה במיוחד למי שמתחיל מאפס. אני לא מניח שום ידע מוקדם ומסביר כל מושג בשפה ברורה, עם דוגמאות מהחיים. למעשה, רוב התלמידים שלי הגיעו בלי רקע פיננסי.
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-q">
+          הפסדתי כסף בבורסה בעבר. למה הפעם זה יהיה שונה?
+          <div class="faq-toggle">+</div>
+        </div>
+        <div class="faq-a">
+          הסיבה שרוב האנשים מפסידים היא היעדר שיטה. כשמשקיעים בלי להבין את מה שקונים, כל ירידה בשוק יוצרת פאניקה. השיטה כאן בנויה על הבנה מעמיקה - אתה תדע בדיוק למה אתה מחזיק בכל מניה ומתי הגיוני להחזיק או למכור.
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-q">
+          כמה זמן צריך להקדיש לזה?
+          <div class="faq-toggle">+</div>
+        </div>
+        <div class="faq-a">
+          השיעורים נעים בין 15 ל-22 דקות כל אחד - ניתן לצפות בהם בקצב שלך, מתי שנוח לך. השיטה עצמה דורשת כ-15 דקות עבודה ביום אחרי שלמדת אותה.
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-q">
+          מה קורה אחרי שמילאתי את הפרטים?
+          <div class="faq-toggle">+</div>
+        </div>
+        <div class="faq-a">
+          תקבל מייד גישה לשיעור הראשון, ובמהלך הימים הבאים יישלחו אליך השיעורים השני והשלישי במייל. אין שום עלות, ואתה יכול להסיר את עצמך מהרשימה בכל רגע.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== FINAL CTA ============== -->
+<section class="final-cta">
+  <div class="container">
+    <div class="cta-content">
+      <div class="cta-quote">"הסיכון מגיע מלא לדעת מה אתה עושה." — וורן באפט</div>
+      <h2>הגיע הזמן לקחת שליטה על העתיד הכלכלי שלך</h2>
+      <p>
+        אל תמשיך לנחש. אל תמשיך לקנות מניות לפי טיפים מחברים או כותרות בעיתון. למד לחשוב כמו משקיע אמיתי - והפסק לתת לשוק לקבוע את מצב הרוח שלך.
+      </p>
+      <a href="#form" class="cta-button">קבל את השיעור הראשון בחינם ←</a>
+      <div class="cta-meta">למעלה מ-1,000 אנשים כבר התחילו</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== FOOTER ============== -->
+<footer>
+  © 2026 <strong>יניב קלדרון</strong> · כל הזכויות שמורות · מידע בלבד, לא ייעוץ השקעות
+</footer>
+
+<script>
+// ============== WEBHOOK INTEGRATION ==============
+const WEBHOOK_URL = 'https://hook.make.com/XXXXX';
+
+const leadForm = document.getElementById('leadForm');
+const submitBtn = document.getElementById('submitBtn');
+const submitText = document.getElementById('submitText');
+const formStatus = document.getElementById('formStatus');
+const originalBtnText = submitText.textContent;
+
+leadForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
+
+  // Reset previous status
+  formStatus.className = 'form-status';
+  formStatus.textContent = '';
+
+  // Disable button + change text
+  submitBtn.disabled = true;
+  submitText.textContent = 'שולח...';
+
+  // Collect form data
+  const formData = new FormData(leadForm);
+
+  // Add metadata
+  formData.append('pageUrl', window.location.href);
+  formData.append('timestamp', new Date().toISOString());
+
+  try {
+    const response = await fetch(WEBHOOK_URL, {
+      method: 'POST',
+      body: formData
+    });
+
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+
+    // Success
+    formStatus.className = 'form-status success';
+    formStatus.textContent = 'הפרטים נשלחו בהצלחה, נחזור אליך בקרוב';
+    leadForm.reset();
+  } catch (error) {
+    // Error
+    formStatus.className = 'form-status error';
+    formStatus.textContent = 'אירעה שגיאה, נסה שוב';
+    console.error('Webhook submission error:', error);
+  } finally {
+    // Re-enable button
+    submitBtn.disabled = false;
+    submitText.textContent = originalBtnText;
+  }
+});
+</script>
+
+<script>
+// FAQ Toggle
+document.querySelectorAll('.faq-item').forEach(item => {
+  item.addEventListener('click', () => {
+    const isActive = item.classList.contains('active');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+    if (!isActive) item.classList.add('active');
+  });
+});
+
+// Fade up on scroll
+const observerOptions = {
+  threshold: 0.1,
+  rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, observerOptions);
+
+document.querySelectorAll('section .container > *').forEach(el => {
+  el.classList.add('fade-up');
+  observer.observe(el);
+});
+</script>
+
+</body>
+</html>
