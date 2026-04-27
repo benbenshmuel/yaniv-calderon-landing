@@ -1882,11 +1882,9 @@ const params = new URLSearchParams();
 params.append('fullName', document.querySelector('[name="fullName"]').value);
 params.append('email', document.querySelector('[name="email"]').value);
 const phoneValue = document.querySelector('[name="phone"]').value;
-params.append('phone', phoneValue.startsWith('0') ? phoneValue : '0' + phoneValue);').value);
+params.append('phone', phoneValue.startsWith('0') ? phoneValue : '0' + phoneValue);
 const now = new Date();
-const dateStr = now.toLocaleDateString('he-IL');
-const timeStr = now.toLocaleTimeString('he-IL');
-params.append('timestamp', dateStr + ' ' + timeStr);
+params.append('timestamp', now.toLocaleString('he-IL', {timeZone: 'Asia/Jerusalem'}));
 
 const response = await fetch(WEBHOOK_URL, {
   method: 'POST',
