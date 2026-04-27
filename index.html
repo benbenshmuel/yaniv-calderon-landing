@@ -1509,7 +1509,7 @@ footer strong {
             <input type="email" name="email" placeholder="כתובת אימייל" required>
           </div>
           <div class="form-group">
-            <input type="tel" name="phone" placeholder="מספר טלפון" required>
+            <input type="text" name="phone" placeholder="מספר טלפון" required>
           </div>
           
           <label class="form-checkbox">
@@ -1883,7 +1883,10 @@ params.append('fullName', document.querySelector('[name="fullName"]').value);
 params.append('email', document.querySelector('[name="email"]').value);
 const phoneValue = document.querySelector('[name="phone"]').value;
 params.append('phone', phoneValue.startsWith('0') ? phoneValue : '0' + phoneValue);').value);
-params.append('timestamp', new Date().toISOString());
+const now = new Date();
+const dateStr = now.toLocaleDateString('he-IL');
+const timeStr = now.toLocaleTimeString('he-IL');
+params.append('timestamp', dateStr + ' ' + timeStr);
 
 const response = await fetch(WEBHOOK_URL, {
   method: 'POST',
