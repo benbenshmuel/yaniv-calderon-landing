@@ -1878,7 +1878,7 @@ leadForm.addEventListener('submit', async (e) => {
 
   // Collect form data
 try {
-const params = new URLSearchParams();
+    const params = new URLSearchParams();
 params.append('fullName', document.querySelector('[name="fullName"]').value);
 params.append('email', document.querySelector('[name="email"]').value);
 const phoneValue = document.querySelector('[name="phone"]').value;
