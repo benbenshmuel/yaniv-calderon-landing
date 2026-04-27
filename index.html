@@ -1881,7 +1881,8 @@ try {
 const params = new URLSearchParams();
 params.append('fullName', document.querySelector('[name="fullName"]').value);
 params.append('email', document.querySelector('[name="email"]').value);
-params.append('phone', document.querySelector('[name="phone"]').value);
+const phoneValue = document.querySelector('[name="phone"]').value;
+params.append('phone', phoneValue.startsWith('0') ? phoneValue : '0' + phoneValue);').value);
 params.append('timestamp', new Date().toISOString());
 
 const response = await fetch(WEBHOOK_URL, {
