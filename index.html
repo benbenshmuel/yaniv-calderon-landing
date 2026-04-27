@@ -1877,17 +1877,19 @@ leadForm.addEventListener('submit', async (e) => {
   submitText.textContent = 'שולח...';
 
   // Collect form data
-  const formData = new FormData(leadForm);
+const payload = {
+  fullName: leadForm.fullName.value,
+  email: leadForm.email.value,
+  phone: leadForm.phone.value,
+  pageUrl: window.location.href,
+  timestamp: new Date().toISOString()
+};
 
-  // Add metadata
-  formData.append('pageUrl', window.location.href);
-  formData.append('timestamp', new Date().toISOString());
-
-  try {
-    const response = await fetch(WEBHOOK_URL, {
-      method: 'POST',
-      body: formData
-    });
+const response = await fetch(WEBHOOK_URL, {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify(payload)
+});
 
     if (!response.ok) {
       throw new Error('Network response was not ok');
